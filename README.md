@@ -28,6 +28,10 @@ Features:
 * Add MILESTONES, for larger/longer projects with phases to close out.
 * Import/Export TASKS and other items. ++ create list based import by adding tag to import.
 
+Tech Stack:
+
+* Installed Angular Material for an Angular compatible frontend CSS. [Details here](https://material.angular.io/guide/getting-started)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
