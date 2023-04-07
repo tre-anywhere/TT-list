@@ -1,16 +1,29 @@
 <ol id="orderedItemList"></ol>
-
-<!-- <input placeholder="add-new-taskName" (focusout)="onKey($event)" /> -->
+<!-- 
 <div class="input-group mb-3">
-  <button class="btn btn-outline-secondary" type="button" id="button-addon1">
-    Button
+  <button
+    class="btn btn-outline-secondary"
+    type="button"
+    id="button-addon1"
+    (onclick)="onKey()"
+  >
+    ADD (+)
   </button>
   <input
     type="text"
     class="form-control"
-    placeholder="add-new-taskName"
+    placeholder="new-taskName"
     aria-label="Example text with button addon"
     aria-describedby="button-addon1"
-    (focusout)="onKey($event)"
+    (value)="(listFilter)"
   />
 </div>
+ -->
+
+<button mat-stroked-button color="primary" (click)="addTask()" name="btnTask">
+  ADD Task
+</button>
+<input type="text" [(ngModel)]="listFilter" />
+<br />
+<br />
+EXAMPLE TASK: "{{ listFilter }}"

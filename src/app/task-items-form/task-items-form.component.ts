@@ -9,6 +9,7 @@ import { TodoServiceService } from '../data/todo-service.service';
 })
 export class TaskItemsFormComponent {
   values = new Task();
+  listFilter: string = 'cart';
 
   constructor(private todoService: TodoServiceService) {}
 
@@ -26,14 +27,15 @@ export class TaskItemsFormComponent {
     );
   }
 
-  onKey(event: any) {
+  addTask() {
     let elemItem = document.getElementById('orderedItemList');
     let newItem = document.createElement('li');
 
     // without type info
-    newItem.textContent += event.target.value;
+    newItem.textContent += this.listFilter;
     newItem.className = '';
 
     elemItem?.appendChild(newItem);
+    console.log('onKey complete');
   }
 }

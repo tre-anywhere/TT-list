@@ -10,23 +10,26 @@ Building to this [article](https://www.projectmanager.com/guides/task-lists)
 
 Features:
 
-* Add bigger GOALS, name the goal
-* Add/Remove TASKS-ITEMS and TASKS-DETAILS (includes more details)
-* create PROJECTS
-* Mark GOALS, TASKS, or PROJECTS complete
-* add priority to TASKS, Low to High > Critical
-* add deadlines like start and due-dates
-* add descriptions of the work
-* set recurring TASKS
-* List VIEWS include various sorts like: user/personal, deadline, Daily/Weekly/Monthly, ...etc
-* Add team members to ??
-* Assign items (Goals, TaskS, Projects) to team members
-* Attach files. Images and Documents.
-* Include costs, required resources
-* Enable TASK Reminders
-* Add TAGS and sort by TAGS
-* Add MILESTONES, for larger/longer projects with phases to close out.
-* Import/Export TASKS and other items. ++ create list based import by adding tag to import.
+* [x] Add TASKS-ITEMS
+* [ ] Add TASKS-DETAILS (includes more details)
+* [ ] Remove TASKS-ITEMS
+* [ ] Remove TASKS-DETAILS (includes more details)
+* [ ] Add bigger GOALS, name the goal
+* [ ] create PROJECTS
+* [ ] Mark GOALS, TASKS, or PROJECTS complete
+* [ ] add priority to TASKS, Low to High > Critical
+* [ ] add deadlines like start and due-dates
+* [ ] add descriptions of the work
+* [ ] set recurring TASKS
+* [ ] List VIEWS include various sorts like: user/personal, deadline, Daily/Weekly/Monthly, ...etc
+* [ ] Add team members to ??
+* [ ] Assign items (Goals, TaskS, Projects) to team members
+* [ ] Attach files. Images and Documents.
+* [ ] Include costs, required resources
+* [ ] Enable TASK Reminders
+* [ ] Add TAGS and sort by TAGS
+* [ ] Add MILESTONES, for larger/longer projects with phases to close out.
+* [ ] Import/Export TASKS and other items. ++ create list based import by adding tag to import.
 
 Tech Stack:
 
