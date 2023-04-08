@@ -20,10 +20,12 @@
 </div>
  -->
 
-<button mat-stroked-button color="primary" (click)="addTask()" name="btnTask">
-  ADD Task
-</button>
+<button (click)="addTask()">ADD Task</button>
 <input type="text" [(ngModel)]="listFilter" />
 <br />
 <br />
 EXAMPLE TASK: "{{ listFilter }}"
+<br />
+<br />
+<button (click)="removeTask()">DELETE Task</button>
+<input type="number" min="1" [(ngModel)]="removeTaskNumber" />
