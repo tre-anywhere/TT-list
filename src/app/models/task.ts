@@ -1,6 +1,8 @@
-export class Task {
-  userId: number | undefined;
-  id: number | undefined;
-  title: string | undefined;
-  completed: boolean | undefined;
+export interface ITask {
+  userId: number;
+  taskId: number;
+  name: string;
+  details: string;
+  completed: boolean;
+  priority: string[];
 }

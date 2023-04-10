@@ -21,11 +21,25 @@
  -->
 
 <button (click)="addTask()">ADD Task</button>
-<input type="text" [(ngModel)]="listFilter" />
+<input type="text" [(ngModel)]="taskInput.name" maxlength="33" />
+<br />
+
+<textarea [(ngModel)]="taskInput.details" maxlength="249"></textarea>
 <br />
 <br />
-EXAMPLE TASK: "{{ listFilter }}"
+<textarea [(ngModel)]="taskInput.priority"></textarea>
+
+<label for="priority">Prioritize:</label>
+
+<select name="priority" id="priority">
+  <option value="priorityLow">Low</option>
+</select>
+
 <br />
 <br />
+
+EXAMPLE TASK: "{{ taskInput.name }}"
+<p>{{ taskInput.details }}</p>
+
 <button (click)="removeTask()">DELETE Task</button>
 <input type="number" min="1" [(ngModel)]="removeTaskNumber" />

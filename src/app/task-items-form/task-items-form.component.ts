@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Task } from '../models/task';
+import { ITask } from '../models/task';
 import { TodoServiceService } from '../data/todo-service.service';
 
 @Component({
@@ -8,8 +8,15 @@ import { TodoServiceService } from '../data/todo-service.service';
   styleUrls: ['./task-items-form.component.css'],
 })
 export class TaskItemsFormComponent {
-  values = new Task();
-  listFilter: string = 'cart';
+  taskInput: ITask = {
+    userId: 0,
+    taskId: 0,
+    name: 'task-name',
+    details: 'task-details',
+    completed: true,
+    priority: ['Low', 'Medium', 'High'],
+  };
+
   removeTaskNumber: number = 1;
 
   constructor(private todoService: TodoServiceService) {}
@@ -17,8 +24,8 @@ export class TaskItemsFormComponent {
   ngOnInit() {}
 
   callTasks(formValues: any): void {
-    let newTask: Task = <Task>formValues;
-    newTask.id = 0;
+    let newTask: ITask = <ITask>formValues;
+    newTask.taskId = 0;
     console.log('a new task is born >' + newTask);
 
     this.todoService.getAllTodos().subscribe(
@@ -29,33 +36,41 @@ export class TaskItemsFormComponent {
   }
 
   addTask() {
+    let tskName: string = 'NAME YOUR TASK!';
+    let tskDetails: string = 'GIVE IT DETAILS...';
+
     let elemItem = document.getElementById('orderedItemList');
     let newItem = document.createElement('li');
 
-    newItem.textContent += this.listFilter;
+    tskName = this.taskInput.name;
+    tskDetails = this.taskInput.details;
+
+    newItem.textContent += `${tskName} + , Details: ${tskDetails}`;
     newItem.className = 'taskItem';
 
     elemItem?.appendChild(newItem);
+    tskName = '';
+    tskDetails = '';
   }
 
   removeTask() {
     let listElem = document.querySelectorAll('.taskItem');
-    // let removeTaskNumber = document.getElementById('removeTaskNumber');
 
-    // console.log('removeTask fires!!');
     console.log('STARTING... listElem.length', listElem);
-    // console.log('removeTaskNumber', this.removeTaskNumber);
 
-    // listElem.forEach(e =>(e.remove));
+    if (this.removeTaskNumber <= listElem.length) {
+      for (let i = 0; i < listElem.length; i++) {
+        console.log(`index = ${i}`);
+        console.log(`this.removeTaskNumber = ${this.removeTaskNumber}`);
 
-    for (let i = 0; i < listElem.length; i++) {
-      // console.log(`listElem[${i}]`, listElem[i]);
-      console.log(`index ${i}`);
-      console.log(`this.removeTaskNumber ${this.removeTaskNumber}`);
+        if (i === this.removeTaskNumber - 1) {
+          console.log(`inside IF`);
 
-      if (i === this.removeTaskNumber - 1) {
-        listElem[i].remove;
+          listElem.item(i).remove();
+        }
       }
+    } else {
+      console.log(`Element not in the list`);
     }
   }
 }
