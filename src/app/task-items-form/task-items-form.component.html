@@ -1,45 +1,42 @@
+<h2>TnT Task Form</h2>
+<form #formInput="ngForm" (ngSubmit)="addTask()">
+  <mat-form-field appearance="fill">
+    <mat-label>Input</mat-label>
+    <input name="name" matInput [(ngModel)]="taskInput.name" />
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="fill">
+    <mat-label>Priority</mat-label>
+    <mat-select name="priority" [(ngModel)]="taskInput.priority">
+      <mat-option value="LOW">LOW</mat-option>
+      <mat-option value="MEDIUM">MEDIUM</mat-option>
+      <mat-option value="HIGH">HIGH</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="fill">
+    <mat-label>Textarea</mat-label>
+    <textarea
+      matInput
+      name="details"
+      [(ngModel)]="taskInput.details"
+    ></textarea>
+  </mat-form-field>
+
+  <button class="button" type="submit">ADD Task</button>
+</form>
+
+<pre>{{ formInput.value | json }} <br /></pre>
+<p>
+  EXAMPLE TASK: "{{ taskInput.name }}"
+  <br />
+  {{ taskInput.details }}
+  <br />
+  {{ taskInput.priority }}
+</p>
+<p>
+  <button (click)="removeTask()">DELETE Task</button>
+  <input type="number" min="1" [(ngModel)]="removeTaskNumber" />
+</p>
+
 <ol id="orderedItemList"></ol>
-<!-- 
-<div class="input-group mb-3">
-  <button
-    class="btn btn-outline-secondary"
-    type="button"
-    id="button-addon1"
-    (onclick)="onKey()"
-  >
-    ADD (+)
-  </button>
-  <input
-    type="text"
-    class="form-control"
-    placeholder="new-taskName"
-    aria-label="Example text with button addon"
-    aria-describedby="button-addon1"
-    (value)="(listFilter)"
-  />
-</div>
- -->
-
-<button (click)="addTask()">ADD Task</button>
-<input type="text" [(ngModel)]="taskInput.name" maxlength="33" />
-<br />
-
-<textarea [(ngModel)]="taskInput.details" maxlength="249"></textarea>
-<br />
-<br />
-<textarea [(ngModel)]="taskInput.priority"></textarea>
-
-<label for="priority">Prioritize:</label>
-
-<select name="priority" id="priority">
-  <option value="priorityLow">Low</option>
-</select>
-
-<br />
-<br />
-
-EXAMPLE TASK: "{{ taskInput.name }}"
-<p>{{ taskInput.details }}</p>
-
-<button (click)="removeTask()">DELETE Task</button>
-<input type="number" min="1" [(ngModel)]="removeTaskNumber" />

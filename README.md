@@ -31,6 +31,10 @@ Features:
 * [ ] Add MILESTONES, for larger/longer projects with phases to close out.
 * [ ] Import/Export TASKS and other items. ++ create list based import by adding tag to import.
 
+Known Issues:
+
+* [ ] Materials is not wired correctly so it isn't working in the templates. Fix materials implementation. (reported 2023-04-13 11:18:51)
+
 Tech Stack:
 
 * Installed Angular Material for an Angular compatible frontend CSS. [Details here](https://material.angular.io/guide/getting-started)

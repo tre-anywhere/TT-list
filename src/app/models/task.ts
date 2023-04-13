@@ -4,5 +4,5 @@ export interface ITask {
   name: string;
   details: string;
   completed: boolean;
-  priority: string[];
+  priority: string;
 }

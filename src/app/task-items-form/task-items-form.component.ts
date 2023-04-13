@@ -9,12 +9,12 @@ import { TodoServiceService } from '../data/todo-service.service';
 })
 export class TaskItemsFormComponent {
   taskInput: ITask = {
-    userId: 0,
-    taskId: 0,
-    name: 'task-name',
-    details: 'task-details',
+    name: 'def-task-name',
+    details: 'def-task-details',
+    priority: 'def-LOW',
     completed: true,
-    priority: ['Low', 'Medium', 'High'],
+    taskId: 0,
+    userId: 0,
   };
 
   removeTaskNumber: number = 1;
@@ -38,15 +38,17 @@ export class TaskItemsFormComponent {
   addTask() {
     let tskName: string = 'NAME YOUR TASK!';
     let tskDetails: string = 'GIVE IT DETAILS...';
+    let tskPriority: string = '';
+
+    tskName = this.taskInput.name;
+    tskDetails = this.taskInput.details;
+    tskPriority = this.taskInput.priority;
 
     let elemItem = document.getElementById('orderedItemList');
     let newItem = document.createElement('li');
 
-    tskName = this.taskInput.name;
-    tskDetails = this.taskInput.details;
-
     newItem.textContent += `${tskName} + , Details: ${tskDetails}`;
-    newItem.className = 'taskItem';
+    newItem.className = 'taskItem'; // used to remove task that are added by user
 
     elemItem?.appendChild(newItem);
     tskName = '';
