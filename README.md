@@ -10,11 +10,9 @@ Building to this [article](https://www.projectmanager.com/guides/task-lists)
 
 Features:
 
-* [x] Add TASKS-ITEMS
-* [x] Remove TASKS-ITEMS
-* [x] Add TASKS-DETAILS
-* [x] Remove TASKS-DETAILS
-* [ ] add priority to TASKS, Low to High > Critical
+* [x] Add/Remove TASKS-ITEMS
+* [x] Add/Remove TASKS-DETAILS
+* [x] add priority to TASKS, Low to High > Critical
 * [ ] Add bigger GOALS, name the goal
 * [ ] create PROJECTS
 * [ ] Mark GOALS, TASKS, or PROJECTS complete
