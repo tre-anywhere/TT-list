@@ -14,7 +14,7 @@ export class TaskItemsFormComponent {
     name: 'task-name',
     details: 'task-details',
     completed: true,
-    priority: ['Low', 'Medium', 'High'],
+    priority: 'LOW',
   };
 
   removeTaskNumber: number = 1;
@@ -38,12 +38,14 @@ export class TaskItemsFormComponent {
   addTask() {
     let tskName: string = 'NAME YOUR TASK!';
     let tskDetails: string = 'GIVE IT DETAILS...';
+    let tskPriority: string = '';
 
     let elemItem = document.getElementById('orderedItemList');
     let newItem = document.createElement('li');
 
     tskName = this.taskInput.name;
     tskDetails = this.taskInput.details;
+    tskPriority = this.taskInput.priority;
 
     newItem.textContent += `${tskName} + , Details: ${tskDetails}`;
     newItem.className = 'taskItem';

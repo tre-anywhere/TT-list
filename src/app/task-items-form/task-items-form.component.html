@@ -27,19 +27,26 @@
 <textarea [(ngModel)]="taskInput.details" maxlength="249"></textarea>
 <br />
 <br />
-<textarea [(ngModel)]="taskInput.priority"></textarea>
+<br />
 
 <label for="priority">Prioritize:</label>
 
-<select name="priority" id="priority">
-  <option value="priorityLow">Low</option>
+<select id="priority">
+  <option value="priorityLow">LOW</option>
+  <option value="priorityLow">MEDIUM</option>
+  <option value="priorityLow">HIGH</option>
 </select>
 
 <br />
 <br />
 
-EXAMPLE TASK: "{{ taskInput.name }}"
-<p>{{ taskInput.details }}</p>
+<p>
+  EXAMPLE TASK: "{{ taskInput.name }}"
+  <br />
+  {{ taskInput.details }}
+  <br />
+  {{ taskInput.priority }}
+</p>
 
 <button (click)="removeTask()">DELETE Task</button>
 <input type="number" min="1" [(ngModel)]="removeTaskNumber" />
