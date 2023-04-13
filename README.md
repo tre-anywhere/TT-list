@@ -31,7 +31,7 @@ Features:
 
 Known Issues:
 
-* [ ] Materials is not wired correctly so it isn't working in the templates. Fix materials implementation. (reported 2023-04-13 11:18:51)
+* [-] Materials is not wired correctly so it isn't working in the templates. Fix materials implementation. (reported 2023-04-13 11:18:51, fixed in branch "version_2")
 
 Tech Stack:
 
