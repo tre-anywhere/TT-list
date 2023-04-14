@@ -14,7 +14,7 @@ Features:
 * [x] Add/Remove TASKS-DETAILS
 * [x] add priority to TASKS, Low to High > Critical
 * [x] Add Task form input validation
-* [ ] Link to API
+* [x] Link to external API
 * [ ] Add bigger GOALS, name the goal
 * [ ] create PROJECTS
 * [ ] Mark GOALS, TASKS, or PROJECTS complete
