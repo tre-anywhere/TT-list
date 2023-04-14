@@ -13,6 +13,8 @@ Features:
 * [x] Add/Remove TASKS-ITEMS
 * [x] Add/Remove TASKS-DETAILS
 * [x] add priority to TASKS, Low to High > Critical
+* [x] Add Task form input validation
+* [ ] Link to API
 * [ ] Add bigger GOALS, name the goal
 * [ ] create PROJECTS
 * [ ] Mark GOALS, TASKS, or PROJECTS complete
@@ -31,7 +33,7 @@ Features:
 
 Known Issues:
 
-* [-] Materials is not wired correctly so it isn't working in the templates. Fix materials implementation. (reported 2023-04-13 11:18:51, fixed in branch "version_2")
+* [ ] ...
 
 Tech Stack:
 

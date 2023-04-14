@@ -1,10 +1,27 @@
 <h2>TnT Task Form</h2>
-<form #formInput="ngForm" (ngSubmit)="addTask()">
+
+<form #formInput="ngForm" (ngSubmit)="addTask(formInput)">
   <mat-form-field appearance="fill">
     <mat-label>Input</mat-label>
-    <input name="name" matInput [(ngModel)]="taskInput.name" />
+    <input
+      name="name"
+      matInput
+      [(ngModel)]="taskInput.name"
+      required
+      maxlength="33"
+      #nameField="ngModel"
+      (blur)="onBlur(nameField)"
+      [class.field-error]="formInput.submitted && nameField.invalid"
+    />
   </mat-form-field>
   <br />
+  <div
+    [hidden]="!formInput.submitted && nameField.invalid"
+    class="alert alert-danger"
+  >
+    Enter a name
+  </div>
+
   <mat-form-field appearance="fill">
     <mat-label>Priority</mat-label>
     <mat-select name="priority" [(ngModel)]="taskInput.priority">
@@ -14,18 +31,21 @@
     </mat-select>
   </mat-form-field>
   <br />
+
   <mat-form-field appearance="fill">
     <mat-label>Textarea</mat-label>
     <textarea
       matInput
       name="details"
       [(ngModel)]="taskInput.details"
+      maxlength="255"
     ></textarea>
   </mat-form-field>
 
   <button class="button" type="submit">ADD Task</button>
 </form>
 
+<!-- 
 <pre>{{ formInput.value | json }} <br /></pre>
 <p>
   EXAMPLE TASK: "{{ taskInput.name }}"
@@ -33,10 +53,13 @@
   {{ taskInput.details }}
   <br />
   {{ taskInput.priority }}
-</p>
+</p> -->
+
 <p>
   <button (click)="removeTask()">DELETE Task</button>
   <input type="number" min="1" [(ngModel)]="removeTaskNumber" />
 </p>
 
-<ol id="orderedItemList"></ol>
+<ol id="orderedItemList">
+  <li *ngFor="let todo of todos">{{ todo }}</li>
+</ol>
