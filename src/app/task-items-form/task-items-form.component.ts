@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ITask } from '../models/task';
 import { TodoServiceService } from '../data/todo-service.service';
 import { NgForm, NgModel } from '@angular/forms';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-task-items-form',
@@ -14,30 +15,48 @@ export class TaskItemsFormComponent implements OnInit {
     details: 'def-task-details',
     priority: 'def-LOW',
     completed: true,
-    taskId: 0,
+    id: 0,
     userId: 0,
+    title: 'def-title',
   };
 
   removeTaskNumber: number = 1;
   // todos = ['one', 'two', 'three'];
-  todos: [string] = [''];
+  todos: [ITask] | undefined;
 
   taskInput: ITask = { ...this.origianlTaskInput };
 
   constructor(private todoService: TodoServiceService) {}
 
   ngOnInit() {
-    this.todoService.getAllTodos(this.taskInput).subscribe(
-      // (result) => (this.todos = result),
-      (result) => {
-        for (let i = 0; i < result.length; i++) {
-          this.todos[i] = result[i].title;
-        }
-        return this.todos;
-      },
-      // (result) => console.log('ngOnInit: ', result),
-      (error) => console.log('error: ', error)
-    );
+    this.todoService
+      .getAllTodos()
+      // .pipe( // pipe is not working
+      //   map((data) => {
+      //     return new this.taskInput data['id'], data['title'], data['body'];
+      //   })
+      // )
+      .subscribe(
+        (result) => {
+          console.log('result: ', result);
+          this.todos = result;
+
+          console.log('this.todos: ', this.todos);
+        },
+
+        (error) => console.log('error: ', error)
+      );
+
+    // this.todoService.getAllTodos(this.taskInput).subscribe(
+    //   (result) => {
+    //     for (let i = 0; i < result.length; i++) {
+    //       this.todos[i] = result[i].title;
+    //     }
+    //     return this.todos;
+    //   },
+
+    //   (error) => console.log('error: ', error)
+    // );
 
     // console.log('ngOnInit: ');
   }
@@ -74,7 +93,7 @@ export class TaskItemsFormComponent implements OnInit {
 
   callTasks(formValues: any): void {
     let newTask: ITask = <ITask>formValues;
-    newTask.taskId = 0;
+    newTask.id = 0;
     console.log('a new task is born >' + newTask);
 
     // this.todoService.getAllTodos(this.taskInput).subscribe(

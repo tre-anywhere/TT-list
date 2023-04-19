@@ -37,6 +37,8 @@ Known Issues:
 
 Tech Stack:
 
+* MongoDB,
+
 * Installed Angular Material for an Angular compatible frontend CSS. [Details here](https://material.angular.io/guide/getting-started)
 
 ## Development server

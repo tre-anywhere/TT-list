@@ -45,21 +45,13 @@
   <button class="button" type="submit">ADD Task</button>
 </form>
 
-<!-- 
-<pre>{{ formInput.value | json }} <br /></pre>
-<p>
-  EXAMPLE TASK: "{{ taskInput.name }}"
-  <br />
-  {{ taskInput.details }}
-  <br />
-  {{ taskInput.priority }}
-</p> -->
-
 <p>
   <button (click)="removeTask()">DELETE Task</button>
   <input type="number" min="1" [(ngModel)]="removeTaskNumber" />
 </p>
 
 <ol id="orderedItemList">
-  <li *ngFor="let todo of todos">{{ todo }}</li>
+  <li *ngFor="let todo of todos" class="taskItem">
+    Task id #{{ todo.id }}, <b>"{{ todo.title }}"</b>
+  </li>
 </ol>

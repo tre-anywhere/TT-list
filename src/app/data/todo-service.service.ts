@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ITask } from '../models/task';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -13,8 +14,7 @@ export class TodoServiceService {
     return of(taskInput);
   }
 
-  getAllTodos(taskInput: ITask): Observable<any> {
-    // return this.http.get<string>('https://jsonplaceholder.typicode.com/todos');
-    return this.http.get('https://jsonplaceholder.typicode.com/todos');
+  getAllTodos(): Observable<any> {
+    return this.http.get<ITask>('https://jsonplaceholder.typicode.com/todos');
   }
 }
